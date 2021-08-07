@@ -1,22 +1,28 @@
 <script>
   import Button from "./Button.svelte";
   export let buttons;
+  let animating = -1;
 
-  function onClick(button) {
-    alert("click");
-    location.href = button.url;
+  function onClick(button, index) {
+    animating = index;
+    setTimeout(() => {
+      location.href = button.url;
+    }, 2000);
   }
 </script>
 
 <main class="relative w-full h-full">
-  <div class="flex justify-center items-center w-full h-full z-10">
+  <div
+    class="flex justify-center items-center w-full h-full z-10 overflow-hidden"
+  >
     <div class="h-auto flex flex-col sm:flex-row gap-9">
-      {#each buttons as button}
+      {#each buttons as button, i}
         <Button
           url={button.url}
           icon={button.icon}
-          ficon={button.ficon}
-          onClick={() => onClick(button)}
+          onClick={() => onClick(button, i)}
+          animating={animating}
+          index={i}
         />
       {/each}
     </div>
