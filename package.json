@@ -1,0 +1,16 @@
+{
+  "name": "@example/starter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build"
+  },
+  "devDependencies": {
+    "@astrojs/renderer-svelte": "^0.1.1",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "astro": "^0.18.9",
+    "tailwindcss": "^2.2.7"
+  }
+}

@@ -1,0 +1,29 @@
+---
+import Main from "../components/Main.svelte";
+import Button from "../components/Button.svelte";
+import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter, faGithub, faReddit, faYoutube } from "@fortawesome/free-brands-svg-icons";
+
+let title = 'My Astro Site';
+
+const buttons = [
+    {url: "https://twitter.com/smixqse", icon: faTwitter},
+    {url: "https://github.com/smixqse", icon: faGithub},
+    {url: "https://reddit.com/u/smixqse", icon: faReddit},
+    {url: "https://www.youtube.com/channel/UCMsLB-9AECak7w_K9Z6OrBw", icon: faYoutube},
+    {url: "mailto:mail@smixqse.top", icon: faMailBulk }
+]
+
+---
+<html lang="en" class="text-xs sm:text-sm md:text-md lg:text-lg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style/global.css">
+</head>
+<body class="bg-black">
+    <Main buttons={buttons} client:idle></Main> 
+</body>
+</html>
