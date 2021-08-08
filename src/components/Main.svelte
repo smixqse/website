@@ -2,7 +2,7 @@
   import Button from "./Button.svelte";
   export let buttons;
   let animating = -1;
-  let rect = { x: 0, y: 0 };
+  let rect = { x: 0, y: 0 }; //
 
   function onClick(button, index, element) {
     animating = index;
