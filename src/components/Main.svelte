@@ -2,12 +2,16 @@
   import Button from "./Button.svelte";
   export let buttons;
   let animating = -1;
+  let rect = { x: 0, y: 0 };
 
-  function onClick(button, index) {
+  function onClick(button, index, element) {
     animating = index;
     setTimeout(() => {
       location.href = button.url;
     }, 2000);
+    let initialRect = element.getBoundingClientRect();
+    initialRect.icon = button.icon;
+    rect = initialRect;
   }
 </script>
 
@@ -15,13 +19,13 @@
   <div
     class="flex justify-center items-center w-full h-full z-10 overflow-hidden"
   >
-    <div class="h-auto flex flex-col sm:flex-row gap-9">
+    <div class="relative h-auto flex flex-col sm:flex-row gap-9">
       {#each buttons as button, i}
         <Button
           url={button.url}
           icon={button.icon}
-          onClick={() => onClick(button, i)}
-          animating={animating}
+          onClick={(element) => onClick(button, i, element)}
+          {animating}
           index={i}
         />
       {/each}
@@ -34,4 +38,15 @@
       </div>
     </div>-->
   </div>
+  {#if rect.x !== 0}
+    <span class="fixed" style={`left: ${rect.x}px; top: ${rect.y}px;`}>
+      <Button
+        url={""}
+        icon={rect.icon}
+        onClick={() => {}}
+        animating={-1}
+        index={0}
+      />
+    </span>
+  {/if}
 </main>

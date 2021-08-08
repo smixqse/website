@@ -1,11 +1,11 @@
 <script>
-  export let classData;
+  export let svgClass;
   export let data;
 </script>
 
 <svg
   version="1.1"
-  class={classData}
+  class={svgClass}
   role="presentation"
   fill="currentColor"
   viewBox={`0 0 ${data.icon[0]} ${data.icon[1]}`}
