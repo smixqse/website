@@ -28,6 +28,6 @@
     href={url}
     on:click|preventDefault={onClick(element)}
   >
-    <Icon svgClass="text-white" data={icon} />
+    <Icon svgClass="text-white w-full h-full" data={icon} />
   </a>
 </div>
