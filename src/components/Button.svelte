@@ -2,11 +2,13 @@
   import Icon from "./Icon.svelte";
   let element;
 
-  export let icon;
-  export let url;
+  export let button;
   export let onClick;
   export let animating;
   export let index;
+
+  let icon = button.icon;
+  let url = button.url;
 
   $: currentlyAnimating = animating !== -1;
   $: animatingSelf = animating === index;
@@ -26,6 +28,6 @@
     href={url}
     on:click|preventDefault={onClick(element)}
   >
-    <Icon svgClass="text-white w-full h-full" data={icon} />
+    <Icon svgClass="text-white w-full h-full" data={icon} secondary={button.secondary} />
   </a>
 </div>

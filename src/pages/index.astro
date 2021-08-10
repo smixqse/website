@@ -1,17 +1,17 @@
 ---
 import Main from "../components/Main.svelte";
 import Button from "../components/Button.svelte";
-import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faGithub, faReddit, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
-let title = 'My Astro Site';
+let title = 'smixqse';
 
 const buttons = [
-    {url: "https://twitter.com/smixqse", icon: faTwitter},
-    {url: "https://github.com/smixqse", icon: faGithub},
-    {url: "https://reddit.com/u/smixqse", icon: faReddit},
-    {url: "https://www.youtube.com/channel/UCMsLB-9AECak7w_K9Z6OrBw", icon: faYoutube},
-    {url: "mailto:mail@smixqse.top", icon: faMailBulk }
+    {name: "YouTube", url: "https://www.youtube.com/channel/UCMsLB-9AECak7w_K9Z6OrBw", icon: faYoutube},
+    {name: "YouTube", url: "https://www.youtube.com/channel/UCHooNXF6YdpeIcCdvUK_htw", icon: faYoutube, secondary: true},
+    {name: "Twitter", url: "https://twitter.com/smixqse", icon: faTwitter},
+    {name: "GitHub", url: "https://github.com/smixqse", icon: faGithub},
+    {name: "Email", url: "mailto:mail@smixqse.top", icon: faEnvelope }
 ]
 
 ---

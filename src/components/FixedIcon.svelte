@@ -1,10 +1,12 @@
 <script>
   import Icon from "./Icon.svelte";
   import { onMount } from "svelte";
-  export let icon;
+  export let button;
   export let rect;
   export let middle;
   export let isRight;
+
+  let icon = button.icon;
   let secondProperty = false;
 
   onMount(() => {
@@ -33,6 +35,10 @@
         : "animate-gotoright md:animate-gotoleft")
     }`}
   >
-    <Icon svgClass="text-white w-full h-full" data={icon} />
+    <Icon
+      svgClass="text-white w-full h-full"
+      data={icon}
+      secondary={button.secondary}
+    />
   </div>
 </span>

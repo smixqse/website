@@ -8,18 +8,22 @@
 
   function onClick(button, index, element) {
     animating = index;
-    setTimeout(() => {
-      //location.href = button.url;
-      location.reload();
-    }, 2000);
-    setTimeout(() => {
-      showButtons = false;
-    }, 1200);
     let initialRect = element.getBoundingClientRect();
-    initialRect.icon = button.icon;
+    initialRect.button = button;
     initialRect.middle = index === Math.floor(buttons.length / 2);
     initialRect.isRight = index < Math.floor(buttons.length / 2);
     rect = initialRect;
+
+    setTimeout(() => {
+      showButtons = false;
+    }, 1200);
+    setTimeout(() => {
+      location.href = button.url;
+    }, 2000);
+    document.title = button.name;
+    setInterval(() => {
+      document.title = document.title + ".";
+    }, 500);
   }
 </script>
 
@@ -31,8 +35,7 @@
       {#if showButtons}
         {#each buttons as button, i}
           <Button
-            url={button.url}
-            icon={button.icon}
+            {button}
             onClick={(element) => onClick(button, i, element)}
             {animating}
             index={i}
@@ -43,7 +46,7 @@
   </div>
   {#if rect.x !== 0}
     <FixedIcon
-      icon={rect.icon}
+      button={rect.button}
       {rect}
       middle={rect.middle}
       isRight={rect.isRight}
@@ -53,9 +56,9 @@
     <div class="flex items-center justify-center">
       <div class="fixed z-0 pointer-events-none top-full animate-backanim">
         <div
-          class="w-full h-full text-white opacity-10 font-sans font-semibold tracking-widest leading-5"
+          class="w-full h-full text-white opacity-20 font-sans font-semibold tracking-widest leading-5"
         >
-          {#each Array(20) as _, i}
+          {#each Array(25) as _, i}
             <span class="text-[4rem] leading-none block">smixqse</span>
           {/each}
         </div>
