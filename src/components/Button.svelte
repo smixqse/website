@@ -7,24 +7,22 @@
   export let onClick;
   export let animating;
   export let index;
-  export let blank;
-  export let disabled;
+
+  $: currentlyAnimating = animating !== -1;
+  $: animatingSelf = animating === index;
 </script>
 
 <div
   class={`flex flex-row w-16 h-16 justify-center transition-transform ${
-    animating !== -1 &&
-    (animating === index
-      ? `transform opacity-0 scale-150 ease-out duration-500`
-      : "ease-in duration-300 md:translate-y-[60vh]")
+    currentlyAnimating &&
+    !animatingSelf &&
+    "ease-in duration-300 translate-x-[60vw] md:translate-x-0 md:translate-y-[60vh]"
   }`}
-  style={`transition-delay: ${animating === index ? 75 : index * 100}ms;`}
+  style={`transition-delay: ${index * 100}ms;`}
   bind:this={element}
 >
   <a
-    class={`flex h-full w-full text-white ${blank && "hidden"} ${
-      disabled && "pointer-events-none cursor-default"
-    }`}
+    class={`flex h-full w-full text-white ${animatingSelf && "hidden"}`}
     href={url}
     on:click|preventDefault={onClick(element)}
   >

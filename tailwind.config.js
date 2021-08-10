@@ -4,14 +4,32 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        below: {
-          "0%": { transform: "translateY(0px)" },
-          "100%": { transform: "translateY(50vh)" }
+        gotoleft: {
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(20deg)" },
+          "100%": { transform: "rotate(0deg)" }
+        },
+        gotoright: {
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(-20deg)" },
+          "100%": { transform: "rotate(0deg)" }
+        },
+        backanim: {
+          "0%": { transform: "translateY(0vh)" },
+          "100%": { transform: "translateY(-150vh)" }
         }
       },
       animation: {
-        below: "below 500ms ease-in-out 1 normal forwards"
+        gotoleft:
+          "gotoleft 600ms cubic-bezier(0,1.02,1,.95) 400ms 1 normal forwards",
+        gotoright:
+          "gotoright 600ms cubic-bezier(0,1.02,1,.95) 400ms 1 normal forwards",
+        backanim:
+          "backanim 3500ms cubic-bezier(0,1.02,1,.99) 400ms 1 normal forwards"
       }
+    },
+    fontFamily: {
+      sans: ["Segoe UI", "ui-sans-serif"]
     }
   }
 };

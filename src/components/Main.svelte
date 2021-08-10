@@ -1,16 +1,24 @@
 <script>
   import Button from "./Button.svelte";
+  import FixedIcon from "./FixedIcon.svelte";
   export let buttons;
   let animating = -1;
-  let rect = { x: 0, y: 0 }; //
+  let rect = { x: 0, y: 0 };
+  let showButtons = true;
 
   function onClick(button, index, element) {
     animating = index;
     setTimeout(() => {
-      location.href = button.url;
+      //location.href = button.url;
+      location.reload();
     }, 2000);
+    setTimeout(() => {
+      showButtons = false;
+    }, 1200);
     let initialRect = element.getBoundingClientRect();
     initialRect.icon = button.icon;
+    initialRect.middle = index === Math.floor(buttons.length / 2);
+    initialRect.isRight = index < Math.floor(buttons.length / 2);
     rect = initialRect;
   }
 </script>
@@ -20,33 +28,38 @@
     class="flex justify-center items-center w-full h-full z-10 overflow-hidden"
   >
     <div class="relative h-auto flex flex-col sm:flex-row gap-9">
-      {#each buttons as button, i}
-        <Button
-          url={button.url}
-          icon={button.icon}
-          onClick={(element) => onClick(button, i, element)}
-          {animating}
-          index={i}
-        />
-      {/each}
-    </div>
-    <!--<div class="fixed z-0">
-      <div class="w-full h-full text-white opacity-50 font-sans leading-5">
-        {#each Array(5) as _, i}
-          <p class="text-8xl leading-tight">smixqse</p>
+      {#if showButtons}
+        {#each buttons as button, i}
+          <Button
+            url={button.url}
+            icon={button.icon}
+            onClick={(element) => onClick(button, i, element)}
+            {animating}
+            index={i}
+          />
         {/each}
-      </div>
-    </div>-->
+      {/if}
+    </div>
   </div>
   {#if rect.x !== 0}
-    <span class="fixed" style={`left: ${rect.x}px; top: ${rect.y}px;`}>
-      <Button
-        url={""}
-        icon={rect.icon}
-        onClick={() => {}}
-        animating={-1}
-        index={0}
-      />
-    </span>
+    <FixedIcon
+      icon={rect.icon}
+      {rect}
+      middle={rect.middle}
+      isRight={rect.isRight}
+    />
+  {/if}
+  {#if animating !== -1}
+    <div class="flex items-center justify-center">
+      <div class="fixed z-0 pointer-events-none top-full animate-backanim">
+        <div
+          class="w-full h-full text-white opacity-10 font-sans font-semibold tracking-widest leading-5"
+        >
+          {#each Array(20) as _, i}
+            <span class="text-[4rem] leading-none block">smixqse</span>
+          {/each}
+        </div>
+      </div>
+    </div>
   {/if}
 </main>
