@@ -20,6 +20,9 @@
     setTimeout(() => {
       location.href = button.url;
     }, 2000);
+    setTimeout(() => {
+      location.reload();
+    }, 5000);
     document.title = button.name;
     setInterval(() => {
       document.title = document.title + ".";
