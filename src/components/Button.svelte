@@ -15,7 +15,7 @@
 </script>
 
 <div
-  class={`flex flex-row w-16 h-16 justify-center transition-transform ${
+  class={`flex flex-row w-14 h-14 justify-center transition-transform ${
     currentlyAnimating &&
     !animatingSelf &&
     "ease-in duration-300 translate-x-[60vw] md:translate-x-0 md:translate-y-[60vh]"

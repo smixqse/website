@@ -3,10 +3,10 @@
   export let secondary;
 </script>
 
-<div class="relative w-16 h-16">
+<div class="relative w-14 h-14">
   <svg
     version="1.1"
-    class="text-primary w-16 h-16"
+    class="text-primary w-14 h-14"
     role="presentation"
     fill="currentColor"
     viewBox={`0 0 ${data.icon[0]} ${data.icon[1]}`}
