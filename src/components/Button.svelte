@@ -26,6 +26,7 @@
   <a
     class={`flex h-full w-full text-primary ${animatingSelf && "hidden"}`}
     href={url}
+    title={button.name}
     on:click|preventDefault={onClick(element)}
   >
     <Icon data={icon} secondary={button.secondary} />
