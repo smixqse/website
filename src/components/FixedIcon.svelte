@@ -12,7 +12,6 @@
   onMount(() => {
     setTimeout(() => {
       secondProperty = true;
-      console.log(rect);
     }, 50);
   });
 
@@ -35,10 +34,6 @@
         : "animate-gotoright md:animate-gotoleft")
     }`}
   >
-    <Icon
-      svgClass="text-white w-full h-full"
-      data={icon}
-      secondary={button.secondary}
-    />
+    <Icon data={icon} secondary={button.secondary} />
   </div>
 </span>

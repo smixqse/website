@@ -31,7 +31,9 @@
   <div
     class="flex justify-center items-center w-full h-full z-10 overflow-hidden"
   >
-    <div class="relative h-auto flex flex-col sm:flex-row gap-9">
+    <div
+      class="relative h-auto flex flex-col sm:flex-row space-y-8 sm:space-y-0 sm:space-x-8"
+    >
       {#if showButtons}
         {#each buttons as button, i}
           <Button
@@ -56,7 +58,7 @@
     <div class="flex items-center justify-center">
       <div class="fixed z-0 pointer-events-none top-full animate-backanim">
         <div
-          class="w-full h-full text-white opacity-20 font-sans font-semibold tracking-widest leading-5"
+          class="w-full h-full text-primary opacity-20 font-sans font-semibold tracking-widest leading-5"
         >
           {#each Array(25) as _, i}
             <span class="text-[4rem] leading-none block">smixqse</span>

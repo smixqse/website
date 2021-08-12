@@ -24,10 +24,10 @@
   bind:this={element}
 >
   <a
-    class={`flex h-full w-full text-white ${animatingSelf && "hidden"}`}
+    class={`flex h-full w-full text-primary ${animatingSelf && "hidden"}`}
     href={url}
     on:click|preventDefault={onClick(element)}
   >
-    <Icon svgClass="text-white w-full h-full" data={icon} secondary={button.secondary} />
+    <Icon data={icon} secondary={button.secondary} />
   </a>
 </div>

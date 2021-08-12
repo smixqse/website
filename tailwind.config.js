@@ -26,6 +26,10 @@ module.exports = {
           "gotoright 600ms cubic-bezier(0,1.02,1,.95) 400ms 1 normal forwards",
         backanim:
           "backanim 3500ms cubic-bezier(0,1.02,1,.99) 400ms 1 normal forwards"
+      },
+      colors: {
+        primary: "#ffffff",
+        background: "#000000"
       }
     },
     fontFamily: {
