@@ -10,7 +10,7 @@
     animating = index;
     let initialRect = element.getBoundingClientRect();
     initialRect.button = button;
-    initialRect.middle = index === Math.floor(buttons.length / 2);
+    initialRect.middle = !Number.isInteger(buttons.length) && index === Math.floor(buttons.length / 2);
     initialRect.isRight = index < Math.floor(buttons.length / 2);
     rect = initialRect;
 
